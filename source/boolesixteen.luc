@@ -1,0 +1,20 @@
+module boolesixteen (
+    input alufn[4],
+    input a[16],
+    input b[16],
+    output boole[16]
+  ) {
+  always {
+          case(alufn) {
+        b1000: boole = a & b;       // AND command
+        b1110: boole = a | b;       // OR command
+        b0110: boole = a ^ b;       // XOR command
+        b1010: boole = a;           // "A" command 
+        b0111: boole = ~(a & b);    // NAND command
+        b0001: boole = ~ (a | b);   // NOR command
+        b1001: boole = ~ ( a ^ b);  // XNOR command
+
+        default: boole = 16b0;      // default
+      }
+  }
+}
