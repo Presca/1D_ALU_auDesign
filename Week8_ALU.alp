@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Week8_ALU" board="Alchitry Au" language="Lucid" version="3">
   <files>
-    <src>delayer.luc</src>
-    <component>counter.luc</component>
-    <src>alufn_counter.luc</src>
-    <component>decoder.luc</component>
-    <src>alu.luc</src>
     <src>shiftersixteen.luc</src>
-    <src top="true">au_top.luc</src>
-    <src>seven_seg.luc</src>
-    <src>boolesixteen.luc</src>
-    <src>comparesixteen.luc</src>
+    <src>alufn_counter.luc</src>
     <src>multi_seven_seg.luc</src>
-    <component>reset_conditioner.luc</component>
+    <component>counter.luc</component>
+    <src>alu.luc</src>
+    <src>seven_seg.luc</src>
+    <component>decoder.luc</component>
     <src>fasixteen.luc</src>
+    <src>comparesixteen.luc</src>
+    <component>reset_conditioner.luc</component>
+    <src>delayer.luc</src>
+    <src>boolesixteen.luc</src>
+    <src top="true">au_top.luc</src>
     <constraint lib="true">alchitry.acf</constraint>
     <constraint lib="true">io.acf</constraint>
     <constraint lib="true">au.xdc</constraint>
