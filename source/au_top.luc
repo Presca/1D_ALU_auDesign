@@ -58,13 +58,6 @@ module au_top (
     alufn_count.count = 4b0;
 
     
-    //PUTTING A AND B INTO THE ALU 
-    //SET ALUFN VALUE TO 0
-    
-    //alu.a = a;
-    //alu.b = b;
-    //alu.alufn = 6b0;
-    
     //ALUFN connected to dips
     alufn[5:0] = io_dip[2][5:0];
     //io_dip[2][5:0] = alufn[5:0];
@@ -118,8 +111,8 @@ module au_top (
           6h00: seg.values={4hf,4hc,4h0,4h1}; //addition
           6h01: seg.values={4hf,4hc,4h0,4h2}; //subtraction 
           6h02: seg.values={4hf,4hc,4h0,4h3}; //multiplication
-          6h04: seg.values={4hf,4h0,4h0,4h4}; //division 
-          6h08: seg.values={4hf,4h0,4h0,4h5}; //negate 
+          6h04: seg.values={4hf,4hc,4h0,4h4}; //division 
+          6h08: seg.values={4hf,4hc,4h0,4h5}; //negate 
           6h18: seg.values={4hf,4hc,4h0,4h6}; // and
           6h1e: seg.values={4hf,4hc,4h0,4h7}; // or
           6h16: seg.values={4hf,4hc,4h0,4h8}; // xor
@@ -291,8 +284,8 @@ module au_top (
           6h00: seg.values={4hf,4hc,4h0,4h1}; //addition
           6h01: seg.values={4hf,4hc,4h0,4h2};//subtraction 
           6h02: seg.values={4hf,4hc,4h0,4h3};//multiplication
-          6h04: seg.values={4hf,4h0,4h0,4h4};//division 
-          6h08: seg.values={4hf,4h0,4h0,4h5}; //negate 
+          6h04: seg.values={4hf,4hc,4h0,4h4};//division 
+          6h08: seg.values={4hf,4hc,4h0,4h5}; //negate 
           6h18: seg.values={4hf,4hc,4h0,4h6}; // and
           6h1e: seg.values={4hf,4hc,4h0,4h7}; // or
           6h16: seg.values={4hf,4hc,4h0,4h8}; //xor
@@ -326,8 +319,6 @@ module au_top (
           b=0;
           state.d = state.AUTO;
         }
-
-
 
   }
 }
