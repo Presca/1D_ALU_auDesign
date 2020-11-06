@@ -1,18 +1,20 @@
 module fasixteen (
     input a[16],      // 16-bit input A
     input b[16],      // 16-bit input B
-    input alufn[4],   // last 3 bits of 6-bit input ALUFN
+    input alufn[4],   // last 4 bits of 6-bit input ALUFN
     output z,         // output z
     output v,         // output v
     output n,         // output n
-    output s[16]      // 16-bit output SUM
+    output s[16]      // 16-bit output of the adder unit 
   ) {
   
   sig out[16],mout[32];
 
   always {
+    //choosing between MUL / ADD /  SUB / NEGATE / DIVISION
+    // LOOKS AT THE LSB OF THE ALUFN TO CHOOSE WHETHER IT IS MULTIPLICATION / DIVISION / NEGATE
     case(alufn[0]) {
-      //choosing between MUL + ADD or SUB 
+      
       b0: 
           z = b0;
           v = b0;
@@ -21,11 +23,13 @@ module fasixteen (
          if (alufn[1]) {                         //multiplication b000010 
           mout = $signed(a) * $signed(b);
           out = mout[15:0];                      //for multiplication of signed numbers 
-          if(mout[31:16] ==16b0){
-           v=0;                                            
-          } 
+          
+          // CHECKING FOR MULTIPLICATION OVERFLOW 
+          if ($signed(a) > 32767 / $signed(b)) { 
+            v=1;
+          }
           else {
-           v=1;
+           v=0;
           }
         }
         
@@ -46,7 +50,9 @@ module fasixteen (
           v = (((a[15])&(b[15])&(~out[15])) | ((~a[15])&(~b[15])&(out[15])));  
           n = out[15];  
         }  
-                                                        
+        
+      // IF LSB IS 1 THEN IT IS  SUBTRACTION  
+        
       b1:                                          //subtraction 
         out = a - b;                                                        
         z = ~|out;                                                          
