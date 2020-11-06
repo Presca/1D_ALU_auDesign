@@ -8,7 +8,7 @@ module alu (
     output n
   ) {
   
-  fasixteen adder;           //FULLADDER16 module (includes multiplier) 
+  fasixteen adder;           //FULLADDER16 module (includes multiplier, negation, division) 
   comparesixteen compare;    //COMPARE16 module
   shiftersixteen shifter;    //SHIFTER16 module 
   boolesixteen boole;        //BOOLE16 module 
